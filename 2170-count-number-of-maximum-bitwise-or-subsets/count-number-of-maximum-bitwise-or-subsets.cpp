@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int countMaxOrSubsets(vector<int>& nums) {
+        int n=nums.size();
+        int subsets=1<<n;
+        int maxi=INT_MIN;
+        int cnt=0;
+        for(int num=0;num<subsets;num++){
+            int temp=0;
+            for(int i=0;i<n;i++){
+                if(num&(1<<i))
+                    temp |= nums[i];
+            }
+            if(temp>maxi){
+                maxi=temp;
+                cnt=1;
+            }
+            else if(temp==maxi){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+};
