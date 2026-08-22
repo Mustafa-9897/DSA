@@ -7,29 +7,30 @@ public:
         //     cnt++;
         // }
         // return cnt;
-        int cnt=1;
-        while(num!=1){
+        int cnt=0;
+        while(num!=0){
             if(num%2==1) cnt++;
             num /= 2;
         }
         return cnt;
     }
     int sumIndicesWithKSetBits(vector<int>& nums, int k) {
-        // int sum=0;
-        // for(int i=0;i<nums.size();i++){
-        //     int setbits=helper(i);
-        //     if(setbits==k){
-        //         sum += nums[i];
-        //     }
-        // }
-        // return sum;
-
-        int sum = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (__builtin_popcount(i) == k) {
+        int sum=0;
+        for(int i=0;i<nums.size();i++){
+            int setbits=helper(i);
+            if(setbits==k){
                 sum += nums[i];
             }
         }
         return sum;
+
+        //  OPTIMAL
+        // int sum = 0;
+        // for (int i = 0; i < nums.size(); i++) {
+        //     if (__builtin_popcount(i) == k) {
+        //         sum += nums[i];
+        //     }
+        // }
+        // return sum;
     }
 };
