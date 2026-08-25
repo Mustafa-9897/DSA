@@ -10,10 +10,17 @@ public:
         // }
         // return 0;
 
+        // BETTER
         unordered_set<int> s(nums.begin(), nums.end());
         for(int i = k; ; i += k) {
             if(s.find(i) == s.end())
                 return i;
+        }
+
+        // OPTIMAL
+        for(int x = k; ; x += k) {
+            if(find(nums.begin(), nums.end(), x) == nums.end())
+                return x;
         }
     }
 };
