@@ -23,19 +23,19 @@ public:
 
         if (n <= 2) return 0;
 
-        vector<bool> composite(n, false);
+        vector<bool> composite(n, false); // composite numbers are numbers greater than 1 with more than 1 factors
 
-        int cnt = 1; // prime number 2
+        int cnt = 1; // prime number 2 , we counted 2  so do not have check any even number 
 
-        for (int i = 3; i * i < n; i += 2) {
-            if (!composite[i]) {
+        for (int i = 3; i * i < n; i += 2) { // we will only check odd nums
+            if (!composite[i]) { // means it does not have more than 1 factor , i.e prime
                 for (int j = i * i; j < n; j += 2 * i) {
                     composite[j] = true;
                 }
             }
         }
 
-        for (int i = 3; i < n; i += 2) {
+        for (int i = 3; i < n; i += 2) {  // only check odd nums
             if (!composite[i])
                 cnt++;
         }
