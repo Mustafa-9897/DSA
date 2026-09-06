@@ -9,7 +9,7 @@ public:
                 sum += weights[s[j]-'a'];
             }
             sum = sum % 26;
-            ans += char(122-sum);
+            ans += char(122-sum); // ascii 'a' -> 'z' == 97 -> 122
         }
         return ans;
     }
