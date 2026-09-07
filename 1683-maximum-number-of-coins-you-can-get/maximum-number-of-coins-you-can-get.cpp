@@ -7,7 +7,7 @@ public:
         int ans=0;
         while(cnt){
             ans += piles[i];
-            i -= 2;
+            i -= 2;  // we will choose 2 elements from the last the largest , and the for bob from starting
             cnt--;
         }
         return ans;
