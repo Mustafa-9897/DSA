@@ -9,7 +9,7 @@ public:
             return;
         }
         if(target>=nums[index]){
-            //target -= nums[index];
+            //target -= nums[index]; // when i dexcrease target , it is correct for the pick choice but when after left side i go upwards to go to the left side (not pick) i already have decreased the target(change ho gaya target) so don't change tha target externally like this, do it inside the function call since in function call by decreasing we are not changing the value but just passing the reduced value
             curr.push_back(nums[index]);
             helper(index,target-nums[index],ans,curr,nums);
             curr.pop_back();
