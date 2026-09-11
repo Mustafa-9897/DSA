@@ -18,6 +18,7 @@ public:
                         continue;
                     }
                     int num=digits[i]*100+digits[j]*10+digits[k];
+                    //to reject duplicates
                     st.insert(num);
                 }
             }
