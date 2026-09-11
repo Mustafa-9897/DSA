@@ -14,6 +14,7 @@ public:
                     if(digits[i]==0){
                         continue;
                     }
+                    // last digit must be even
                     if(digits[k]%2!=0){
                         continue;
                     }
