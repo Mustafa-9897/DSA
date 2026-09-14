@@ -27,6 +27,7 @@ public:
                             board[i][j]='.';
                         }
                     }
+                    // if no digit can be placed here then return false
                     return false;
                 }
             }
