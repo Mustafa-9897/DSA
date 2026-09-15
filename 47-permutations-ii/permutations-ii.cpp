@@ -22,8 +22,9 @@ public:
         }
         for(int i=0;i<nums.size();i++){
 
-            if(used[i]==true) continue;
-            if(i>0 && nums[i]==nums[i-1] && used[i-1]==false) continue;
+            if(used[i]==true) continue;   
+            // means if the previous elment is used , and now the current element is same as previous then continue,or else duplicates will get formed
+            if(i>0 && nums[i]==nums[i-1] && !used[i-1]) continue;
             
             used[i]=true;
             curr.push_back(nums[i]);
