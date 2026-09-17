@@ -13,17 +13,35 @@ public:
         // }
         // return maxlen;
 
+
+        //    BETTER
+        // int l=0,r=0,maxlen=0;
+        // unordered_map<int,int>mpp;
+        // while(r<fruits.size()){
+        //     while(mpp.size()>2){
+        //         mpp[fruits[l]]--;
+        //         if(mpp[fruits[l]]==0) mpp.erase(fruits[l]);
+        //         l++;
+        //     }
+        //     mpp[fruits[r]]++;
+        //     if(mpp.size()<=2)
+        //         maxlen=max(maxlen,r-l+1);
+        //     r++;
+        // }
+        // return maxlen;
+
+
+        //   OPTIMAL
         int l=0,r=0,maxlen=0;
         unordered_map<int,int>mpp;
         while(r<fruits.size()){
-            while(mpp.size()>2){
+            mpp[fruits[r]]++;
+            if(mpp.size()>2){
                 mpp[fruits[l]]--;
                 if(mpp[fruits[l]]==0) mpp.erase(fruits[l]);
                 l++;
             }
-            mpp[fruits[r]]++;
-            if(mpp.size()<=2)
-                maxlen=max(maxlen,r-l+1);
+            if(mpp.size()<=2) maxlen=max(maxlen,r-l+1);
             r++;
         }
         return maxlen;
