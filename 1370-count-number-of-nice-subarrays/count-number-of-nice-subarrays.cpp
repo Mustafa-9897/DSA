@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // SAME AS BINARY SUBARRAYS WITH SUM==GOAL , LC=930
     int helper(vector<int>&nums,int k){
         if(k<0) return 0;
         int cnt=0,l=0,r=0,ans=0;
