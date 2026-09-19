@@ -23,6 +23,8 @@ public:
         // if(startingidx==-1) return "";
         // return s.substr(startingidx,minlen);
 
+
+        //  OPTIMAL
         unordered_map<char,int>mpp;
         for(int i=0;i<t.size();i++){
             mpp[t[i]]++;
