@@ -20,6 +20,6 @@ public:
     int countCompleteSubarrays(vector<int>& nums) {
         unordered_set<int>st(nums.begin(),nums.end());
         int k=st.size();
-        return helper(nums,k)-helper(nums,k-1);
+        return helper(nums,k)-helper(nums,k-1); // atmost k - atmost k-1
     }
 };
