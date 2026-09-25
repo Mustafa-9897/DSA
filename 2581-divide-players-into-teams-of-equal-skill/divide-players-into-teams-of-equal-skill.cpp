@@ -4,7 +4,7 @@ public:
         sort(skill.begin(),skill.end());
         int n=skill.size();
         int i=1,j=n-2;
-        int sk=skill[0]+skill[n-1];
+        int sk=skill[0]+skill[n-1];  // pair the weakest with the strongest
         long long ans=skill[0]*skill[n-1];
         while(i<j){
             if(skill[i]+skill[j] != sk) return -1;
