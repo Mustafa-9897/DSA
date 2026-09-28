@@ -14,10 +14,13 @@ public:
         //     x = x/2;
         // }
 
-        while(x>0){
-            ans += x&1;
-            x >>= 1;
-        }
-        return ans;
+        return __builtin_popcount(x);
+
+        // while(x>0){
+        //     ans += x&1;
+        //     x >>= 1;
+        // }
+
+        // return ans;
     }
 };
