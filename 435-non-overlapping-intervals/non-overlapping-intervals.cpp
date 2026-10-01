@@ -4,6 +4,7 @@ public:
         return a[1]<b[1];
     }
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+    // JUST OPPOSITE ANSWER OF N MEETINGS IN A ROOM
         int ans=0;
         int end=INT_MIN;
         int n=intervals.size();
