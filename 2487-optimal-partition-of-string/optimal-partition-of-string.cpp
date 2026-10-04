@@ -1,17 +1,29 @@
 class Solution {
 public:
     int partitionString(string s) {
-        unordered_map<char,int>mpp;
+        // unordered_map<char,int>mpp;
+        // int ans=0;
+        // for(int i=0;i<s.size();i++){
+        //     if(mpp.find(s[i])!=mpp.end()){
+        //         ans++;
+        //         mpp.clear();
+        //         mpp[s[i]]=1;
+        //     }
+        //     else{
+        //         mpp[s[i]]=1;
+        //     }
+        // }
+        // return ans+1;
+
+        // MORE BETTER 
+        vector<int>used(26,0);
         int ans=0;
         for(int i=0;i<s.size();i++){
-            if(mpp.find(s[i])!=mpp.end()){
+            if(used[s[i]-'a']==1){
                 ans++;
-                mpp.clear();
-                mpp[s[i]]=1;
+                used.assign(26,0);
             }
-            else{
-                mpp[s[i]]=1;
-            }
+            used[s[i]-'a']=1;
         }
         return ans+1;
     }
