@@ -12,14 +12,14 @@ public:
                 min--;
                 max--;
             }
-            else{
+            else{             // when s[i]=* then min ko minus kar aur minimum banane ke liye and max ko plus kar aur maximum bane ke liye
                 min--;
                 max++;
             }
             if(min<0){
                 min=0;
             }
-            if(max<0){
+            if(max<0){        // eg. s=)*()
                 return false;
             }
         }
