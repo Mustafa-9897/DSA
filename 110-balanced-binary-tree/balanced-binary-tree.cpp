@@ -18,15 +18,18 @@ public:
         return 1+max(hl,hr);
     }
     bool isBalanced(TreeNode* root) {
+        //  RECURSIVE
         if(root==NULL) return true;
         int lh=findheight(root->left);
         int rh=findheight(root->right);
         if(abs(lh-rh)>1) return false;
         bool leftcheck=isBalanced(root->left);
         bool rightcheck=isBalanced(root->right);
-        if(leftcheck==false || rightcheck==false){
+        if(!leftcheck || !rightcheck){  // same as leftcheck==false || rightcheck==false
             return false;
         }
         return true;
+
+        // 
     }
 };
