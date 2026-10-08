@@ -32,18 +32,22 @@ public:
         }
         queue<pair<TreeNode*, TreeNode*>>q;
         q.push({root->left, root->right});
- 
+
         while (!q.empty()) {
 
             auto [leftnode, rightnode] = q.front(); // distributes the two values of the pair stored in the queue to two variables leftnode and rightnode
             q.pop();
  
-            if (leftnode == nullptr && rightnode == nullptr) {
-                continue;
+            // if(leftnode==NULL || rightnode==NULL) { 
+               // WRONG AS WHEN I CHECK LEFTNODE AND RIGHT NODE IF BOTH ARE NULL I AM IMMEDIATELY RETURNING TRUE WITHOUT CHECKING FURTHUR
+            //     return leftnode==rightnode;
+            // }
+
+            if(leftnode==NULL || rightnode==NULL){
+                if(leftnode!=rightnode) return false;
+                else continue;
             }
-            if (leftnode == nullptr || rightnode == nullptr) {
-                return false; // since both null vala case hamne upar hi handle kiya already
-            }
+
             if (leftnode->val != rightnode->val) {
                 return false;
             }
