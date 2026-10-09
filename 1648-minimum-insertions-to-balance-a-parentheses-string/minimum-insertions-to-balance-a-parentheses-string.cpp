@@ -27,6 +27,7 @@ public:
                 else ans++;
             }
         }
+        // if there are still ( int he stack then we will need twice as much ) so ans += 2*
         ans += 2*st.size();
         return ans;
     }
