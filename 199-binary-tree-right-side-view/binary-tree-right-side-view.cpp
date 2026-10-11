@@ -18,6 +18,7 @@ public:
         helper(root->left,ans,level+1);
     }
     vector<int> rightSideView(TreeNode* root) {
+        // ITERATIVE USING QUEUE AND MAP
         // vector<int>ans;
         // if(root==NULL) return ans;
         // queue<pair<TreeNode*,int>>q;
@@ -37,6 +38,7 @@ public:
         // }
         // return ans;
 
+        // OPTIMAL
         vector<int>ans;
         if(root==NULL) return ans;
         helper(root,ans,0);
