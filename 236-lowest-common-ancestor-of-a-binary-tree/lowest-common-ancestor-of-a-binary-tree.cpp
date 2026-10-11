@@ -39,9 +39,14 @@ public:
         // }
         // return ans;
 
-        if(root==NULL) return NULL;
-        if(root==p) return p;
-        else if(root==q) return q;
+
+        // OPTIMAL
+        // if(root==NULL) return NULL;
+        // if(root==p) return p;
+        // else if(root==q) return q;
+        if(root==NULL || root==p || root==q){
+            return root;
+        }
 
         TreeNode* left=lowestCommonAncestor(root->left,p,q);
         TreeNode* right=lowestCommonAncestor(root->right,p,q);
