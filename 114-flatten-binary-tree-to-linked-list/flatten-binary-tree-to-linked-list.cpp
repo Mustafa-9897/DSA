@@ -22,7 +22,7 @@ public:
         // vector<TreeNode*>ans;
         // if(root==NULL) return ;
         // helper(root,ans);
-        // for(int i=0;i<ans.size()-1;i++){
+        // for(int i=0;i<ans.size()-1;i++){            // USING SPACE 
         //     ans[i]->left=NULL;
         //     ans[i]->right=ans[i+1];
         // }
@@ -31,7 +31,7 @@ public:
         // return ;
         if(root==NULL) return;
         flatten(root->right);
-        flatten(root->left);
+        flatten(root->left);                       // WITHOUT USING SPACE
         root->right=prev;
         root->left=NULL;
         prev=root;
