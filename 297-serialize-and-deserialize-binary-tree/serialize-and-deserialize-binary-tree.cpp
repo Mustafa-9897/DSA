@@ -13,16 +13,20 @@ public:
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
         if(root==NULL) return "";
+
         string s="";
         queue<TreeNode*>q;
         q.push(root);
+
         while(!q.empty()){
             TreeNode* node=q.front();
             q.pop();
+
             if(node==NULL) s += "null,";
             else{
                 s += (to_string(node->val)+',');
             }
+            // here we are not checking of validity of node's left and right , we are checking only for node since even if its left and right are null still we have to store it in string
             if(node!=NULL){
                 q.push(node->left);
                 q.push(node->right);
