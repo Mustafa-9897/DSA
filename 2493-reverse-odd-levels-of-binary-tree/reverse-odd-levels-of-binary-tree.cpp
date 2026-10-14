@@ -12,13 +12,16 @@
 class Solution {
 public:
     TreeNode* reverseOddLevels(TreeNode* root) {
+
         if(root->left==NULL && root->right==NULL) return root;
         queue<TreeNode*>q;
         q.push(root);
         int cnt=0;
+
         while(!q.empty()){
             int size=q.size();
             vector<TreeNode*>level;
+            
             for(int i=0;i<size;i++){
                 TreeNode* node=q.front();
                 q.pop();
