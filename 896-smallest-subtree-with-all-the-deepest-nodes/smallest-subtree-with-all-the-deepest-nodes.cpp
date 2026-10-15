@@ -11,48 +11,73 @@
  */
 class Solution {
 public:
-    TreeNode* lca(TreeNode* root,TreeNode* p,TreeNode* q){
-        if(root==NULL || root==p || root==q){
-            return root;
+    // TreeNode* lca(TreeNode* root,TreeNode* p,TreeNode* q){
+    //     if(root==NULL || root==p || root==q){
+    //         return root;
+    //     }
+    //     TreeNode* left=lca(root->left,p,q);
+    //     TreeNode* right=lca(root->right,p,q);
+    //     if(left==NULL) return right;
+    //     else if(right==NULL) return left;
+    //     else return root;
+    // }
+    // int findheight(TreeNode* root){
+    //     if(root==NULL) return 0;
+    //     int lh=findheight(root->left);
+    //     int rh=findheight(root->right);
+    //     return 1+max(lh,rh);
+    // }
+
+    pair<TreeNode*,int> helper(TreeNode* root){
+        if(root==NULL){
+            return {NULL,0};
         }
-        TreeNode* left=lca(root->left,p,q);
-        TreeNode* right=lca(root->right,p,q);
-        if(left==NULL) return right;
-        else if(right==NULL) return left;
-        else return root;
-    }
-    int findheight(TreeNode* root){
-        if(root==NULL) return 0;
-        int lh=findheight(root->left);
-        int rh=findheight(root->right);
-        return 1+max(lh,rh);
+        pair<TreeNode*,int>left=helper(root->left);
+        pair<TreeNode*,int>right=helper(root->right);
+        if(left.second==right.second){
+            return {root,left.second+1};
+        }
+        else if(left.second>right.second){
+            return {left.first,left.second+1};
+        }
+        else{
+            return {right.first,right.second+1};
+        }
     }
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
-        queue<TreeNode*>qu;
-        qu.push(root);
-        int h=findheight(root);
-        while(!qu.empty() && h>1){
-            h--;
-            int size=qu.size();
-            for(int i=0;i<size;i++){
-                TreeNode* node=qu.front();
-                qu.pop();
-                if(node->left) qu.push(node->left);
-                if(node->right) qu.push(node->right);
-            }
-        }
-        // Initially, ans is the first deepest node.
-        // The first LCA combines that node with the second deepest node.
-        // The next LCA combines their common ancestor with the third deepest node.
-        // This continues until every deepest node has been included.
-        // at last ans denotes the lca of all the deepest nodes
-        TreeNode* ans=qu.front();
-        qu.pop();
-        while(!qu.empty()){
-            TreeNode* node=qu.front();
-            qu.pop();
-            ans=lca(root,ans,node);
-        }
-        return ans;
+        // queue<TreeNode*>qu;
+        // qu.push(root);
+        // int h=findheight(root);
+        // while(!qu.empty() && h>1){
+        //     h--;
+        //     int size=qu.size();
+        //     for(int i=0;i<size;i++){
+        //         TreeNode* node=qu.front();
+        //         qu.pop();
+        //         if(node->left) qu.push(node->left);
+        //         if(node->right) qu.push(node->right);
+        //     }
+        // }
+
+        // // Initially, ans is the first deepest node.
+        // // The first LCA combines that node with the second deepest node.
+        // // The next LCA combines their common ancestor with the third deepest node.
+        // // This continues until every deepest node has been included.
+        // // at last ans denotes the lca of all the deepest nodes
+
+        // TreeNode* ans=qu.front();
+        // qu.pop();
+        // while(!qu.empty()){
+        //     TreeNode* node=qu.front();
+        //     qu.pop();
+        //     ans=lca(root,ans,node);
+        // }
+        // return ans;
+
+
+
+
+        // optimal
+        return helper(root).first;
     }
 };
