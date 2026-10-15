@@ -15,13 +15,28 @@ public:
         // }
         // return sum;
 
+        // int n=nums.size();
+        // int sum=0;
+        // for(int i=0;i<n;i++){
+        //     set<int>st;
+        //     for(int j=i;j<n;j++){
+        //         st.insert(nums[j]);                    //  USING SET
+        //         int size=st.size();
+        //         sum += size*size;
+        //     }
+        // }
+        // return sum;
+
         int n=nums.size();
         int sum=0;
         for(int i=0;i<n;i++){
-            set<int>st;
+            vector<int>hash(101,0);
+            int size=0;
             for(int j=i;j<n;j++){
-                st.insert(nums[j]);                    //  USING SET
-                int size=st.size();
+                if(hash[nums[j]]==0){          // USING VECTOR SINCE CONSTARINTS ARE SMALL
+                    size++;
+                }
+                hash[nums[j]]++; 
                 sum += size*size;
             }
         }
