@@ -16,9 +16,9 @@ public:
         if(root==NULL) return;
         maxi=max(root->val,maxi);  // maxi and mini are passed by values so while going from 
         mini=min(root->val,mini);  // left subtree to right subtree eg. 1 3 6 (l root r)
-        ans=max(ans,abs(maxi-mini));   // for the left subtree mini=1,maxi=8 now while backtracking
-        helper(root->left,maxi,mini); // when we come to 3 the mini will become 3 , the mini of
-        helper(root->right,maxi,mini); // the subtree that was before going to left
+        ans=max(ans,abs(maxi-mini));   // for the left subtree mini=1,maxi=8 now while backtracking when we come to 3 the mini will become 3 , the mini of
+        helper(root->left,maxi,mini); // the subtree that was before going to left
+        helper(root->right,maxi,mini);  
     }
     int maxAncestorDiff(TreeNode* root) {
         helper(root,root->val,root->val);
