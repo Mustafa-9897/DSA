@@ -17,7 +17,7 @@ public:
         TreeNode* root=new TreeNode(preorder[prest]);
 
         if(prest==preend) return root;
-        int rootidx=mpp[preorder[prest+1]]; // root index of the next subtree
+        int rootidx=mpp[preorder[prest+1]]; // root index of the next subtree.
         int numsleft=rootidx-postst+1;
 
         root->left=helper(preorder,prest+1,prest+numsleft,postorder,postst,rootidx,mpp);
@@ -30,6 +30,7 @@ public:
         for(int i=0;i<postorder.size();i++){
             mpp[postorder[i]]=i;
         }
+        // we will start the postorder and preorder form 0th index 
         TreeNode* root=helper(preorder,0,preorder.size()-1,postorder,0,postorder.size()-1,mpp);
         return root;
     }
