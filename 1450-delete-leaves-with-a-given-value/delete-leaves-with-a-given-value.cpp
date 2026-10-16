@@ -19,7 +19,7 @@ public:
             return NULL;
         }
         else{
-            return root;
+            return root;  // if the the leaf node's value is not target then return leaf node
         }
         return root;
     }
