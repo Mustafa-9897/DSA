@@ -18,7 +18,8 @@ public:
         // else if(right==NULL) return left;
         // return root;
 
-        if(root->val==p->val || root->val==q->val) return root;
+        //   OPTIMAL
+        if(root==NULL) return NULL;
         if(root->val<p->val && root->val<q->val) return lowestCommonAncestor(root->right,p,q);
         if(root->val>p->val && root->val>q->val) return lowestCommonAncestor(root->left,p,q);
         return root;
