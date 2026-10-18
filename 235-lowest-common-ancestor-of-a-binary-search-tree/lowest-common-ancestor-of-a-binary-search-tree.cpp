@@ -11,6 +11,7 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // BRUTE
         // if(root==NULL || root==p || root==q) return root;
         // TreeNode* left=lowestCommonAncestor(root->left,p,q);
         // TreeNode* right=lowestCommonAncestor(root->right,p,q);
@@ -18,14 +19,15 @@ public:
         // else if(right==NULL) return left;
         // return root;
 
-        //   OPTIMAL , you can also do this using while loop
+        //   BETTER
         // if(root==NULL) return NULL;
         // if(root->val<p->val && root->val<q->val) return lowestCommonAncestor(root->right,p,q);
         // if(root->val>p->val && root->val>q->val) return lowestCommonAncestor(root->left,p,q);
         // return root;
 
+        //  OPTIMAL
         while(root){
-            if(root==NULL || root==p || root==q) return root;
+            //if(root==NULL || root==p || root==q) return root;
             if(root->val<p->val && root->val<q->val){
                 root=root->right;
             }
