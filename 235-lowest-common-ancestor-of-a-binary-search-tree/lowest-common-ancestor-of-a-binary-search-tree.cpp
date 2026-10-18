@@ -18,10 +18,22 @@ public:
         // else if(right==NULL) return left;
         // return root;
 
-        //   OPTIMAL
-        if(root==NULL) return NULL;
-        if(root->val<p->val && root->val<q->val) return lowestCommonAncestor(root->right,p,q);
-        if(root->val>p->val && root->val>q->val) return lowestCommonAncestor(root->left,p,q);
-        return root;
+        //   OPTIMAL , you can also do this using while loop
+        // if(root==NULL) return NULL;
+        // if(root->val<p->val && root->val<q->val) return lowestCommonAncestor(root->right,p,q);
+        // if(root->val>p->val && root->val>q->val) return lowestCommonAncestor(root->left,p,q);
+        // return root;
+
+        while(root){
+            if(root==NULL || root==p || root==q) return root;
+            if(root->val<p->val && root->val<q->val){
+                root=root->right;
+            }
+            else if(root->val>p->val && root->val>q->val){
+                root=root->left;
+            }
+            else return root;
+        }
+        return NULL;
     }
 };
