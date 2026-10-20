@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // since inorder = left root right hota hai so use divide and conquer to find the entire tree using recursion same as merge sort
     TreeNode* helper(vector<int>&inorder,int start,int end){
         if(start>end) return NULL;
         int mid=start+(end-start)/2;
