@@ -27,6 +27,8 @@ public:
         //vector<vector<int>>nums;
         vector<int>temp;
         helper(root,temp,ans,targetSum,0);
+        
+        //  PUT ALL THE ROOT->LEAF PATHS IN ANS THEN CALCULATE SUM OF EACH PATH IF IT EQUALS TARGETsUM THEN PUT THAT PATH INTO NUMS ANT RETURN NUMS ,  BRUTE
         // for(int i=0;i<ans.size();i++){
         //     int sum=0;
         //     for(int j=0;j<ans[i].size();j++){
