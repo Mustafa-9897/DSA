@@ -19,23 +19,38 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        if(!root) return root;
-        queue<Node*>q;
-        q.push(root);
-        while(!q.empty()){
-            int size=q.size();
-            vector<Node*>temp;
-            for(int i=0;i<size;i++){
-                Node* curr=q.front();
-                q.pop();
-                temp.push_back(curr);
-                if(curr->left) q.push(curr->left);
-                if(curr->right) q.push(curr->right);
+        // if(!root) return root;
+        // queue<Node*>q;
+        // q.push(root);
+        // while(!q.empty()){
+        //     int size=q.size();
+        //     vector<Node*>temp;
+        //     for(int i=0;i<size;i++){
+        //         Node* curr=q.front();
+        //         q.pop();
+        //         temp.push_back(curr);
+        //         if(curr->left) q.push(curr->left);
+        //         if(curr->right) q.push(curr->right);
+        //     }
+        //     for(int i=0;i<temp.size()-1;i++){
+        //         temp[i]->next=temp[i+1];
+        //     }
+        //     temp[temp.size()-1]->next=NULL;
+        // }
+        // return root;
+
+        if(!root) return NULL;
+        Node* level=root;
+        while(level->left){
+            Node* curr=level;
+            while(curr){
+                curr->left->next=curr->right;
+                if(curr->next){
+                    curr->right->next=curr->next->left;
+                }
+                curr=curr->next;
             }
-            for(int i=0;i<temp.size()-1;i++){
-                temp[i]->next=temp[i+1];
-            }
-            temp[temp.size()-1]->next=NULL;
+            level=level->left;
         }
         return root;
     }
