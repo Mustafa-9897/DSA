@@ -19,7 +19,8 @@ public:
             int stops=it.first;
             q.pop();
 
-            if(stops>k) continue;
+            if(stops>k) continue; // if the stops exceeds the required no. of stops then don't push new paths into Q ,just iterate over the paths that are still present in the Q
+            
             for(auto it:adj[node]){
                 int adjnode=it.first;
                 int wt=it.second;
