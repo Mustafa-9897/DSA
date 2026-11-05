@@ -26,7 +26,7 @@ public:
     }
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         int n=grid.size();
-        if(grid[0][0]==1 || grid[n-1][n-1]==1) return -1;
+        if(grid[0][0]==1) return -1;
         vector<vector<int>>dist(n,vector<int>(n,INT_MAX));
         dist[0][0]=0;
         int ans=bfs(grid,dist);
