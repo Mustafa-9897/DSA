@@ -1,3 +1,4 @@
+// disjoint set data structure
 class DisjointSet{
 public:
     vector<int>parent,size;
@@ -31,12 +32,14 @@ public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         DisjointSet ds(n);
         int extraEdges=0;
+        // count the number of extra edges
         for(auto it:connections){
             int u=it[0],v=it[1];
             if(ds.findUP(u)==ds.findUP(v)) extraEdges++;
             else ds.UnionBySize(u,v);
         }
         int nc=0;
+        // count the number of components
         for(int i=0;i<n;i++){
             if(ds.parent[i]==i) nc++;
         }
