@@ -22,7 +22,7 @@ public:
         vector<int>temp;
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                int cnt=0;
+                int cnt=0; // cnt will be inside j vala for loop and we ahve to pass cnt by reference and not by value so we get  the size of whole island not just the 1 recursive call 
                 if(!vis[i][j] && grid[i][j]==1){
                     dfs(i,j,cnt,grid,vis,temp);
                 }
