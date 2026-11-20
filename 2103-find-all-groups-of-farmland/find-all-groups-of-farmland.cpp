@@ -9,9 +9,8 @@ public:
             for(j=0;j<m;j++){
                 
                 if(!vis[i][j] && land[i][j]==1){
-                    ogi=i;ogj=j;
+                    //ogi=i;ogj=j;
                     int r=i,c=j;
-                    
                     while(c<m && land[r][c]==1){
                         c++;
                     }
@@ -25,7 +24,7 @@ public:
                             vis[x][y] = 1;
                         }
                     }
-                    ans.push_back({ogi,ogj,r,c});
+                    ans.push_back({i,j,r,c});
                 }
             }
         }
