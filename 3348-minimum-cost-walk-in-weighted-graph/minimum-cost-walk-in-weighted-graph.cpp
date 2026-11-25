@@ -37,7 +37,7 @@ public:
             int andBeforeV=ds.cost[ds.findUP(v)];
             ds.UnionBySize(u,v);
             if(ds.cost[ds.findUP(u)]!=INT_MAX && ds.cost[ds.findUP(v)]!=INT_MAX) {
-                ds.cost[ds.findUP(u)] = (andBeforeU)&(andBeforeV)&(wt);
+                ds.cost[ds.findUP(u)] = (andBeforeU)&(andBeforeV)&(wt); // don't forget to do and with wt also since this is new edge that connects these both components so it should be considered too
             }
             else{
                 ds.cost[ds.findUP(u)] &= wt;
