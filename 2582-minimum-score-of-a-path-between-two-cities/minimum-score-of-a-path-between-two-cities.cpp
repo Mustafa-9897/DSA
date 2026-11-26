@@ -62,7 +62,7 @@ public:
             q.pop();
             for(auto it:adj[node]){
                 int adjnode=it.first,wt=it.second;
-                ans=min(ans,wt);
+                ans=min(ans,wt);  // this statement will be at outside of if block if the , the node is visited already but there is an edge that goes to this node again which contains the minimum weight then we have to consider it too
                 if(!vis[adjnode]){
                     q.push(adjnode);
                     vis[adjnode]=1;
